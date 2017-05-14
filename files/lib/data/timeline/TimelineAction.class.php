@@ -58,18 +58,18 @@ class TimelineAction extends AbstractDatabaseObjectAction{
      * @inheritDoc
      */
     public function update() {
+        parent::update();
+	
         if (!empty($this->parameters['htmlInputProcessor'])) {
             $timelines = $this->getObjects();
             foreach($timelines as $timeline){
                 // save embedded objects
                 $this->parameters['htmlInputProcessor']->setObjectID($timeline->timelineID);
                 if ($timeline->hasEmbeddedObjects != MessageEmbeddedObjectManager::getInstance()->registerObjects($this->parameters['htmlInputProcessor'])) {
-                    $timelineEditor = new TimelineEditor($timeline);
-                    $timelineEditor->update(['hasEmbeddedObjects' => $timeline->hasEmbeddedObjects ? 0 : 1]);
+                    $timeline->update(['hasEmbeddedObjects' => $timeline->hasEmbeddedObjects ? 0 : 1]);
                 }
             }
         }
-        parent::update();
     }
 
 
