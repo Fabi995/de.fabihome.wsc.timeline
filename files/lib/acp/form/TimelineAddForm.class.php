@@ -128,7 +128,8 @@ class TimelineAddForm extends AbstractForm {
             'date' => $this->timeObj->getTimestamp(),
             'content' => $this->htmlInputProcessor->getHtml(),
             'isHighlight' => $this->isHighlight,
-        ])]);
+        ]),
+        'htmlInputProcessor' =>  $this->htmlInputProcessor]);
 
         $this->objectAction->executeAction();
 
