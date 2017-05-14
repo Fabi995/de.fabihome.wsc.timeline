@@ -3,6 +3,7 @@ namespace wcf\data\timeline;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\database\util\PreparedStatementConditionBuilder;
 use wcf\system\exception\UserInputException;
+use wcf\system\message\embedded\object\MessageEmbeddedObjectManager;
 use wcf\system\WCF;
 
 /**
@@ -35,6 +36,42 @@ class TimelineAction extends AbstractDatabaseObjectAction{
      * @inheritDoc
      */
     protected $requireACP = ['delete', 'getSearchResultList', 'search', 'update'];
+
+
+    /**
+     * @inheritDoc
+     */
+    public function create() {
+        $timeline = parent::create();
+        
+        // save embedded objects
+        if (!empty($this->parameters['htmlInputProcessor'])) {
+            $this->parameters['htmlInputProcessor']->setObjectID($timeline->timelineID);
+            if (MessageEmbeddedObjectManager::getInstance()->registerObjects($this->parameters['htmlInputProcessor'])) {
+                $timelineEditor = new TimelineEditor($timeline);
+                $timelineEditor->update(['hasEmbeddedObjects' => 1]);
+            }
+        }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function update() {
+        if (!empty($this->parameters['htmlInputProcessor'])) {
+            $timelines = $this->getObjects();
+            foreach($timelines as $timeline){
+                // save embedded objects
+                $this->parameters['htmlInputProcessor']->setObjectID($timeline->timelineID);
+                if ($timeline->hasEmbeddedObjects != MessageEmbeddedObjectManager::getInstance()->registerObjects($this->parameters['htmlInputProcessor'])) {
+                    $timelineEditor = new TimelineEditor($timeline);
+                    $timelineEditor->update(['hasEmbeddedObjects' => $timeline->hasEmbeddedObjects ? 0 : 1]);
+                }
+            }
+        }
+        parent::update();
+    }
+
 
     /**
      * @inheritDoc

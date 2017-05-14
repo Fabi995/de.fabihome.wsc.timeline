@@ -64,8 +64,9 @@ class TimelineEditForm extends TimelineAddForm {
             'date' => $this->timeObj->getTimestamp(),
             'content' => $this->htmlInputProcessor->getHtml(),
             'isHighlight' => $this->isHighlight,
-
-        ])]);
+        ]),
+        'htmlInputProcessor' =>  $this->htmlInputProcessor]);
+        
         $this->objectAction->executeAction();
 
         $this->saved();

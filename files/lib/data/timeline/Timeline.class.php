@@ -2,6 +2,7 @@
 namespace wcf\data\timeline;
 use wcf\data\DatabaseObject;
 use wcf\system\html\output\HtmlOutputProcessor;
+use wcf\system\message\embedded\object\MessageEmbeddedObjectManager;
 use wcf\system\WCF;
 
 /**
@@ -30,6 +31,11 @@ class Timeline extends DatabaseObject {
      */
     public function getFormattedContent() {
         $processor = new HtmlOutputProcessor();
+
+        if ($this->hasEmbeddedObjects) {
+            MessageEmbeddedObjectManager::getInstance()->loadObjects('de.fabihome.wsc.timeline.content', [$this->timelineID]);
+        }
+
         $processor->process($this->content, 'de.fabihome.wsc.timeline.content', $this->timelineID);
 
         return $processor->getHtml();
