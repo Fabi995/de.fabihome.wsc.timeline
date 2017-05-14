@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="de.fabihome.wsc.timeline" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+    <packageinformation>
+        <packagename><![CDATA[Timeline]]></packagename>
+        <packagedescription><![CDATA[Timeline for successes or something else.]]></packagedescription>
+        <packagedescription language="de"><![CDATA[Timeline für Erfolge oder anderes.]]></packagedescription>
+        <version>1.0.1</version>
+        <date>2017-04-16</date>
+        <license><![CDATA[All rights reserved <https://fabihome.de/license.html>]]></license>
+    </packageinformation>
+
+    <authorinformation>
+        <author>Fabian (Fabi_995), Morik, Mysterycode</author>
+        <authorurl>https://fabihome.de</authorurl>
+    </authorinformation>
+
+    <requiredpackages>
+        <requiredpackage minversion="3.0.3">com.woltlab.wcf</requiredpackage>
+        <requiredpackage minversion="1.1.1 pl 3" file="requirements/de.softcreatr.wsc.fontAwesomeUtils_v1.1.1_pl_3.tar.gz">de.softcreatr.wsc.fontAwesomeUtils</requiredpackage>
+    </requiredpackages>
+
+    <excludedpackages>
+        <excludedpackage version="3.1.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+    </excludedpackages>
+
+    <instructions type="install">
+
+        <!-- files -->
+        <instruction type="file" />
+        <instruction type="template" />
+        <instruction type="acpTemplate" />
+
+        <!-- xml -->
+        <instruction type="page" />
+        <instruction type="menuItem" />
+        <instruction type="acpMenu" />
+        <instruction type="userGroupOption" />
+        <instruction type="option" />
+        <instruction type="objectType" />
+
+        <!-- db -->
+        <instruction type="sql">install.sql</instruction>
+
+        <!-- language -->
+        <instruction type="language" />
+
+    </instructions>
+
+</package>
