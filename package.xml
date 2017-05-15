@@ -4,7 +4,7 @@
         <packagename><![CDATA[Timeline]]></packagename>
         <packagedescription><![CDATA[Timeline for successes or something else.]]></packagedescription>
         <packagedescription language="de"><![CDATA[Timeline für Erfolge oder anderes.]]></packagedescription>
-        <version>1.0.2</version>
+        <version>1.0.2 pl 2</version>
         <date>2017-04-16</date>
         <license><![CDATA[All rights reserved <https://fabihome.de/license.html>]]></license>
     </packageinformation>
@@ -51,10 +51,22 @@
         <!-- files -->
         <instruction type="file" />
 
-        <!-- xml -->
-
         <!-- db -->
         <instruction type="sql">update_1.sql</instruction>
+
+    </instructions>
+
+    <instructions type="update" fromversion="1.0.2">
+
+        <!-- files -->
+        <instruction type="file" />
+
+    </instructions>
+
+    <instructions type="update" fromversion="1.0.2 pl 1">
+
+        <!-- files -->
+        <instruction type="file" />
 
     </instructions>
 
