@@ -11,6 +11,13 @@ use wcf\system\bbcode\MessageParser;
  * @author           Fabian Graf
  * @copyright        2017 Fabian Graf
  * @license          GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ *
+ * @property-read integer $timelineID
+ * @property-read string  $title
+ * @property-read string  $content
+ * @property-read string  $icon
+ * @property-read integer $date
+ * @property-read integer $isHighlight
  */
 class Timeline extends DatabaseObject {
 	/**
