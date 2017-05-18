@@ -77,7 +77,7 @@
 			</dl>
 
 			<dl{if $errorField == 'content'} class="formError"{/if}>
-				<dt><label for="content">{lang}wcf.acp.timeline.content{/lang}</label></dt>
+				<dt><label for="timelineContent">{lang}wcf.acp.timeline.content{/lang}</label></dt>
 				<dd>
 					<textarea name="timelineContent" id="timelineContent" class="wysiwygTextarea" data-disable-attachments="true" data-autosave="de.fabihome.wsc.timeline{if $action == 'edit'}.{$timeline->timelineID}{/if}.{$action|ucfirst}">{if !$content|empty}{$content}{/if}</textarea>
 					{include file='wysiwyg' wysiwygSelector='timelineContent'}
