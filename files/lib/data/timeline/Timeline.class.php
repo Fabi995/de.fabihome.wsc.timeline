@@ -13,18 +13,17 @@ use wcf\system\bbcode\MessageParser;
  * @license          GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
 class Timeline extends DatabaseObject {
-
-    /**
-     * @inheritDoc
-     */
-    protected static $databaseTableName = 'timeline';
-
-    /**
-     * @inheritDoc
-     */
-    protected static $databaseTableIndexName = 'timelineID';
-
-    /**
+	/**
+	 * @inheritDoc
+	 */
+	protected static $databaseTableName = 'timeline';
+	
+	/**
+	 * @inheritDoc
+	 */
+	protected static $databaseTableIndexName = 'timelineID';
+	
+	/**
 	 * Returns the timeline's formatted content.
 	 *
 	 * @return      string
@@ -35,5 +34,4 @@ class Timeline extends DatabaseObject {
 		
 		return MessageParser::getInstance()->parse($this->content, 1, 0, 1);
 	}
-	
 }
