@@ -1,56 +1,28 @@
 <?php
+
 namespace wcf\data\timeline;
+
 use wcf\data\DatabaseObject;
-use wcf\system\html\output\HtmlOutputProcessor;
-use wcf\system\message\embedded\object\MessageEmbeddedObjectManager;
-use wcf\system\WCF;
+use wcf\system\bbcode\MessageParser;
 
 /**
  * Database Main Class
  *
- * @author	Fabian Graf
- * @copyright	2017 Fabian Graf
- * @license	All rights reserved
+ * @author           Fabian Graf
+ * @copyright        2017 Fabian Graf
+ * @license          GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
-
 class Timeline extends DatabaseObject {
-    /**
-     * @inheritDoc
-     */
-    protected static $databaseTableName = 'timeline';
-
-    /**
-     * @inheritDoc
-     */
-    protected static $databaseTableIndexName = 'timelineID';
-
-    /**
-     * Returns the timeline's formatted content.
-     *
-     * @return      string
-     */
-    public function getFormattedContent() {
-        $processor = new HtmlOutputProcessor();
-
-        if ($this->hasEmbeddedObjects) {
-            MessageEmbeddedObjectManager::getInstance()->loadObjects('de.fabihome.wsc.timeline.content', [$this->timelineID]);
-        }
-
-        $processor->process($this->content, 'de.fabihome.wsc.timeline.content', $this->timelineID);
-
-        return $processor->getHtml();
-    }
-
-    /**
-     * Returns true if the active user can delete this timeline.
-     *
-     * @return	boolean
-     */
-    public function canDelete() {
-        if (WCF::getSession()->getPermission('admin.content.timeline.canManageTimeline')) {
-            return true;
-        }
-
-        return false;
-    }
+	/**
+	 * Returns the timeline's formatted content.
+	 *
+	 * @return      string
+	 */
+	public function getFormattedMessage() {
+		// parse and return message
+		MessageParser::getInstance()->setOutputType('text/html');
+		
+		return MessageParser::getInstance()->parse($this->content, 1, 0, 1);
+	}
+	
 }
