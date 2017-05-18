@@ -14,7 +14,7 @@
 				<optiontype>select</optiontype>
 				<defaultvalue>DESC</defaultvalue>
 				<selectoptions>ASC:wcf.global.sortOrder.ascending
-					DESC:wcf.global.sortOrder.descending
+DESC:wcf.global.sortOrder.descending
 				</selectoptions>
 			</option>
 

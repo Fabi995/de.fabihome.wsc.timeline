@@ -144,7 +144,10 @@ class TimelineAddForm extends AbstractForm {
 		$this->saved();
 		
 		// reset values
-		$this->title = '' = $this->icon = '' = $this->date = '' = $this->content = '';
+		$this->title = '';
+		$this->icon = '';
+		$this->date = '';
+		$this->content = '';
 		$this->isHighlight = 0;
 		
 		// show success message
