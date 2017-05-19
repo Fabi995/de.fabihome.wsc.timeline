@@ -4,7 +4,7 @@ namespace wcf\acp\form;
 
 use wcf\data\timeline\Timeline;
 use wcf\data\timeline\TimelineAction;
-use wcf\form\AbstractForm;
+use wcf\form\MessageForm;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 use wcf\util\DateUtil;
@@ -26,6 +26,11 @@ class TimelineEditForm extends TimelineAddForm {
 	 * @inheritDoc
 	 */
 	public $neededPermissions = ['admin.content.timeline.canManageTimeline'];
+	
+	/**
+	 * @inheritDoc
+	 */
+	public $action = 'edit';
 	
 	/**
 	 * timeline id
@@ -58,16 +63,16 @@ class TimelineEditForm extends TimelineAddForm {
 	 * @inheritDoc
 	 */
 	public function save() {
-		AbstractForm::save();
+		MessageForm::save();
 		
 		// update timeline
 		$this->objectAction = new TimelineAction([$this->timelineID], 'update', [
 			'data' => array_merge($this->additionalFields, [
-				'title' => $this->title,
+				'title' => $this->subject,
 				'icon' => $this->icon,
 				'date' => $this->timeObj->getTimestamp(),
-				'content' => $this->htmlInputProcessor->getHtml(),
-				'isHighlight' => $this->isHighlight,
+				'content' => $this->text,
+				'isHighlight' => $this->isHighlight
 			]),
 			'htmlInputProcessor' => $this->htmlInputProcessor
 		]);
@@ -87,12 +92,12 @@ class TimelineEditForm extends TimelineAddForm {
 		parent::readData();
 		
 		if (empty($_POST)) {
-			$this->title = $this->timelineObj->title;
+			$this->subject = $this->timelineObj->title;
 			$this->icon = $this->timelineObj->icon;
 			$dateTime = DateUtil::getDateTimeByTimestamp($this->timelineObj->date);
 			$dateTime->setTimezone(WCF::getUser()->getTimeZone());
 			$this->date = $dateTime->format('c');
-			$this->content = $this->timelineObj->content;
+			$this->text = $this->timelineObj->content;
 			if ($this->timelineObj->isHighlight) {
 				$this->isHighlight = 1;
 			}
@@ -107,8 +112,7 @@ class TimelineEditForm extends TimelineAddForm {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign([
-			'timeline' => $this->timelineObj,
-			'action' => 'edit',
+			'timeline' => $this->timelineObj
 		]);
 	}
 }

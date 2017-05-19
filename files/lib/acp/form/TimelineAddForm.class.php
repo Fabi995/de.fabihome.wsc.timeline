@@ -3,7 +3,7 @@
 namespace wcf\acp\form;
 
 use wcf\data\timeline\TimelineAction;
-use wcf\form\AbstractForm;
+use wcf\form\MessageForm;
 use wcf\system\exception\UserInputException;
 use wcf\system\html\input\HtmlInputProcessor;
 use wcf\system\WCF;
@@ -16,7 +16,7 @@ use wcf\util\StringUtil;
  * @copyright        2017 Fabian Graf
  * @license          All rights reserved
  */
-class TimelineAddForm extends AbstractForm {
+class TimelineAddForm extends MessageForm {
 	/**
 	 * @inheritDoc
 	 */
@@ -28,11 +28,14 @@ class TimelineAddForm extends AbstractForm {
 	public $neededPermissions = ['admin.content.timeline.canManageTimeline'];
 	
 	/**
-	 * title value
-	 *
-	 * @var        string
+	 * @inheritDoc
 	 */
-	public $title = '';
+	public $messageObjectType = 'de.fabihome.wsc.timeline.content';
+	
+	/**
+	 * @inheritDoc
+	 */
+	public $action = 'add';
 	
 	/**
 	 * icon value
@@ -56,13 +59,6 @@ class TimelineAddForm extends AbstractForm {
 	public $timeObj;
 	
 	/**
-	 * content value
-	 *
-	 * @var        string
-	 */
-	public $content = '';
-	
-	/**
 	 * @var HtmlInputProcessor
 	 */
 	public $htmlInputProcessor;
@@ -80,13 +76,11 @@ class TimelineAddForm extends AbstractForm {
 	public function readFormParameters() {
 		parent::readFormParameters();
 		
-		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
 		if (isset($_POST['icon'])) $this->icon = StringUtil::trim($_POST['icon']);
 		if (isset($_POST['date'])) {
 			$this->date = $_POST['date'];
 			$this->timeObj = \DateTime::createFromFormat('Y-m-d', $this->date);
 		}
-		if (isset($_POST['timelineContent'])) $this->content = StringUtil::trim($_POST['timelineContent']);
 		if (isset($_POST['isHighlight'])) $this->isHighlight = intval($_POST['isHighlight']);
 	}
 	
@@ -96,10 +90,6 @@ class TimelineAddForm extends AbstractForm {
 	public function validate() {
 		parent::validate();
 		
-		if (empty($this->title)) {
-			throw new UserInputException('title');
-		}
-		
 		// timeline date
 		if (empty($this->date)) {
 			throw new UserInputException('date');
@@ -107,14 +97,6 @@ class TimelineAddForm extends AbstractForm {
 		if (!$this->timeObj) {
 			throw new UserInputException('date', 'invalid');
 		}
-		
-		// content
-		if (empty($this->content)) {
-			throw new UserInputException('content');
-		}
-		
-		$this->htmlInputProcessor = new HtmlInputProcessor();
-		$this->htmlInputProcessor->process($this->content, 'de.fabihome.wsc.timeline.content', 0);
 	}
 	
 	/**
@@ -126,24 +108,20 @@ class TimelineAddForm extends AbstractForm {
 		// save timeline
 		$this->objectAction = new TimelineAction([], 'create', [
 			'data' => array_merge($this->additionalFields, [
-				'title' => $this->title,
+				'title' => $this->subject,
 				'icon' => $this->icon,
 				'date' => $this->timeObj->getTimestamp(),
-				'content' => $this->htmlInputProcessor->getHtml(),
-				'isHighlight' => $this->isHighlight,
+				'content' => $this->text,
+				'isHighlight' => $this->isHighlight
 			]),
 			'htmlInputProcessor' => $this->htmlInputProcessor
 		]);
-		
 		$this->objectAction->executeAction();
 		
 		$this->saved();
 		
 		// reset values
-		$this->title = '';
-		$this->icon = '';
-		$this->date = '';
-		$this->content = '';
+		$this->subject = $this->icon = $this->date = $this->text = '';
 		$this->isHighlight = 0;
 		
 		// show success message
@@ -157,11 +135,8 @@ class TimelineAddForm extends AbstractForm {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign([
-			'action' => 'add',
-			'title' => $this->title,
 			'icon' => $this->icon,
 			'date' => $this->date,
-			'content' => $this->content,
 			'isHighlight' => $this->isHighlight,
 		]);
 	}

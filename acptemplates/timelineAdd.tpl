@@ -23,11 +23,11 @@
 <form method="post" action="{if $action == 'add'}{link controller='TimelineAdd'}{/link}{else}{link controller='TimelineEdit' id=$timeline->timelineID}{/link}{/if}">
 	<div class="section">
 
-		<dl{if $errorField == 'title'} class="formError"{/if}>
-			<dt><label for="title">{lang}wcf.global.title{/lang}</label></dt>
+		<dl{if $errorField == 'subject'} class="formError"{/if}>
+			<dt><label for="subject">{lang}wcf.global.title{/lang}</label></dt>
 			<dd>
-				<input type="text" id="title" name="title" value="{$title}" required autofocus class="long">
-				{if $errorField == 'title'}
+				<input type="text" id="subject" name="subject" value="{$subject}" required autofocus class="long">
+				{if $errorField == 'subject'}
 					<small class="innerError">
 						{if $errorType == 'empty'}
 							{lang}wcf.global.form.error.empty{/lang}
@@ -58,13 +58,13 @@
 			</dd>
 		</dl>
 
-		<dl{if $errorField == 'content'} class="formError"{/if}>
+		<dl{if $errorField == 'text'} class="formError"{/if}>
 			<dt><label for="timelineContent">{lang}wcf.acp.page.content{/lang}</label></dt>
 			<dd>
-				<textarea name="timelineContent" id="timelineContent" class="wysiwygTextarea" data-disable-attachments="true" data-autosave="de.fabihome.wsc.timeline{if $action == 'edit'}.{$timeline->timelineID}{/if}.{$action|ucfirst}">{if !$content|empty}{$content}{/if}</textarea>
-				{include file='wysiwyg' wysiwygSelector='timelineContent'}
+				<textarea name="text" id="text" class="wysiwygTextarea" data-disable-attachments="true" data-autosave="de.fabihome.wsc.timeline{if $action == 'edit'}.{$timeline->timelineID}{/if}.{$action|ucfirst}">{$text}</textarea>
+				{include file='wysiwyg' wysiwygSelector='text'}
 
-				{if $errorField == 'content'}
+				{if $errorField == 'text'}
 					<small class="innerError">
 						{if $errorType == 'empty'}
 							{lang}wcf.global.form.error.empty{/lang}
