@@ -1,6 +1,8 @@
 .timelineContainer {
-	margin-top: 40px;
 	box-sizing: border-box;
+	margin: auto;
+	padding: 40px;
+	width: 80%;
 
 	* {
 		box-sizing: inherit;
@@ -35,7 +37,7 @@
 			visibility: visible !important;
 		}
 
-		@media (max-width: 768px) {
+		@media (max-width: 800px) {
 			align-items: center;
 		}
 
@@ -43,7 +45,12 @@
 			margin-top: 60px;
 		}
 
-		@media (min-width: 769px) {
+		@media (min-width: 801px) {
+			* {
+				padding: 40px;
+				width: 80%;
+			}
+
 			&::before {
 				position: absolute;
 				left: calc(~"50% - 1.5px");
@@ -120,7 +127,7 @@
 			}
 		}
 
-		@media (min-width: 769px) {
+		@media (min-width: 801px) {
 			.timeline-content-container {
 				flex: 0 0 calc(~"50% - 32px");
 			}
@@ -131,7 +138,7 @@
 			}
 		}
 
-		@media (max-width: 768px) {
+		@media (max-width: 800px) {
 			.timeline-date {
 				flex: 0 0 calc(~"100% - 64px");
 				text-align: right;
@@ -146,7 +153,7 @@
 			color: @wcfDimmedColor;
 		}
 
-		@media (min-width: 769px) {
+		@media (min-width: 801px) {
 			&:nth-child(odd) {
 				.timeline-content-container {
 					order: -2;
