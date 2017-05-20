@@ -52,7 +52,7 @@
 
 		//hide timeline blocks which are outside the viewport
 		$timeline.each(function () {
-			if ($(this).offset().top > $(window).scrollTop() + $(window).height() * 0.50) {
+			if ($(this).offset().top > $(window).scrollTop() + $(window).height() * 0.85) {
 				$(this).find('.timeline-icon, .timeline-content-container, .timeline-date').addClass('hidden');
 			}
 		});
@@ -60,7 +60,7 @@
 		//on scolling, show/animate timeline blocks when enter the viewport
 		$(window).on('scroll', function () {
 			$timeline.each(function () {
-				if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.50 && $(this).find('.timeline-icon').hasClass('hidden')) {
+				if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.85 && $(this).find('.timeline-icon').hasClass('hidden')) {
 					$(this).find('.timeline-icon, .timeline-content-container, .timeline-date').removeClass('hidden').addClass('slide-in-up');
 				}
 			});
