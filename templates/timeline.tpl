@@ -19,7 +19,7 @@
 			</div>
 
 			<div class="timeline-icon">
-				<span class="icon icon48 fa-{if $timeline->icon}{$timeline->icon}{else}star{/if}"></span>
+				<span class="icon icon48 fa-{$timeline->icon}"></span>
 			</div>
 
 			<div class="timeline-content-container">
