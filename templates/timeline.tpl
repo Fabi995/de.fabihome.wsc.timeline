@@ -10,6 +10,12 @@
 
 <body id="tpl_{$templateNameApplication}_{$templateName}" data-template="{$templateName}" data-application="{$templateNameApplication}">
 
+<header class="boxHeadline">
+    <h1>{lang}wcf.user.timeline.headline{/lang}</h1>
+</header>
+
+{include file='userNotice'}
+
 <div class="timelineContainer">
 	{foreach from=$objects item=timeline}
 		<div id="timeline-entry{$timeline->timelineID}" class="timeline{if $timeline->isHighlight} highlighted{/if}">
@@ -46,7 +52,7 @@
 
 		//hide timeline blocks which are outside the viewport
 		$timeline.each(function () {
-			if ($(this).offset().top > $(window).scrollTop() + $(window).height() * 0.75) {
+			if ($(this).offset().top > $(window).scrollTop() + $(window).height() * 0.50) {
 				$(this).find('.timeline-icon, .timeline-content-container, .timeline-date').addClass('hidden');
 			}
 		});
@@ -54,7 +60,7 @@
 		//on scolling, show/animate timeline blocks when enter the viewport
 		$(window).on('scroll', function () {
 			$timeline.each(function () {
-				if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.75 && $(this).find('.timeline-icon').hasClass('hidden')) {
+				if ($(this).offset().top <= $(window).scrollTop() + $(window).height() * 0.50 && $(this).find('.timeline-icon').hasClass('hidden')) {
 					$(this).find('.timeline-icon, .timeline-content-container, .timeline-date').removeClass('hidden').addClass('slide-in-up');
 				}
 			});
