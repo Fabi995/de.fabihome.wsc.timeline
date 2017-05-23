@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="timeline-icon">
-				<span class="icon icon48 fa-{$timeline->icon}"></span>
+				<span class="icon icon48 icon-{$timeline->icon}"></span>
 			</div>
 
 			<div class="timeline-content-container">
