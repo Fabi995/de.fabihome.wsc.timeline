@@ -2,7 +2,7 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/pagemenu.xsd">
 	<import>
 		<pagemenuitem name="wcf.user.timeline">
-			<controller><![CDATA[wcf\page\TimeLinePage]]></controller>
+			<controller><![CDATA[wcf\page\TimelinePage]]></controller>
 			<position>header</position>
 		</pagemenuitem>
 	</import>
