@@ -5,8 +5,10 @@ namespace wcf\acp\form;
 use wcf\data\timeline\TimelineAction;
 use wcf\form\MessageForm;
 use wcf\system\exception\UserInputException;
+use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
 use wcf\util\StringUtil;
+use wcf\util\HeaderUtil;
 
 /**
  * Shows the timeline add form.
@@ -120,6 +122,8 @@ class TimelineAddForm extends MessageForm {
 		// reset values
 		$this->subject = $this->icon = $this->date = $this->text = '';
 		$this->isHighlight = 0;
+
+		HeaderUtil::redirect(LinkHandler::getInstance()->getLink('TimelineList'));
 		
 		// show success message
 		WCF::getTPL()->assign('success', true);
