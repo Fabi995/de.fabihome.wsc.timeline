@@ -6,6 +6,7 @@ use wcf\form\MessageForm;
 use wcf\system\exception\IllegalLinkException;
 use wcf\system\WCF;
 use wcf\util\DateUtil;
+
 /**
  * Shows the timeline edit form.
  *

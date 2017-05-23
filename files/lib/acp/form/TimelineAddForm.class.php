@@ -7,8 +7,9 @@ use wcf\form\MessageForm;
 use wcf\system\exception\UserInputException;
 use wcf\system\request\LinkHandler;
 use wcf\system\WCF;
-use wcf\util\StringUtil;
 use wcf\util\HeaderUtil;
+use wcf\util\StringUtil;
+
 
 /**
  * Shows the timeline add form.
