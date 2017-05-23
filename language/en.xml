@@ -16,7 +16,7 @@
 		<item name="wcf.acp.timeline.title"><![CDATA[Title]]></item>
 		<item name="wcf.acp.timeline.date"><![CDATA[Date]]></item>
 		<item name="wcf.acp.timeline.search.query"><![CDATA[Search Term]]></item>
-		<item name="wcf.acp.timeline.delete.sure"><![CDATA[Do you really want to delete the Entry?]]></item>
+		<item name="wcf.acp.timeline.delete.sure"><![CDATA[Do you really want to delete the Entry „{$timeline->title}“?]]></item>
 	</category>
 
 	<category name="wcf.global">
