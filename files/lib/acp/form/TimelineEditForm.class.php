@@ -1,5 +1,7 @@
 <?php
+
 namespace wcf\acp\form;
+
 use wcf\data\timeline\Timeline;
 use wcf\data\timeline\TimelineAction;
 use wcf\form\MessageForm;
