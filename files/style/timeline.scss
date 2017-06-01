@@ -68,15 +68,6 @@
         top: -21px;
       }
 
-      &:first-child::after {
-        position: absolute;
-        content: $fa-var-arrow-up;
-        font-family: FontAwesome;
-        text-align: center;
-        top: -40px;
-        font-size: 16px;
-        color: $wcfContentBorderInner;
-      }
     }
 
     &.highlighted {
@@ -128,18 +119,21 @@
 
     @include screen-md-up {
       .timeline-content-container {
-        flex: 0 0 calc(50% - 32px);
+        flex: 0 0 auto;
+        width: calc(50% - 32px);
       }
 
       .timeline-date {
-        flex: 0 0 calc(50% - 32px);
+        flex: 0 0 auto;
+        width: calc(50% - 32px);
         padding-top: 20px;
       }
     }
 
     @include screen-sm-down {
       .timeline-date {
-        flex: 0 0 calc(100% - 64px);
+        flex: 0 0 auto;
+        width: calc(100% - 64px);
         text-align: right;
       }
 
