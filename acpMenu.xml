@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/acpMenu.xsd">
-    <import>
-
-        <!-- timeline -->
-        <acpmenuitem name="wcf.acp.menu.link.timeline">
-            <parent>wcf.acp.menu.link.content</parent>
-            <showorder>2</showorder>
-        </acpmenuitem>
-        <acpmenuitem name="wcf.acp.menu.link.timeline.list">
-            <controller>wcf\acp\page\TimelineListPage</controller>
-            <parent>wcf.acp.menu.link.timeline</parent>
-            <permissions>admin.content.timeline.canManageTimeline</permissions>
-        </acpmenuitem>
-        <acpmenuitem name="wcf.acp.menu.link.timeline.add">
-            <controller>wcf\acp\form\TimelineAddForm</controller>
-            <parent>wcf.acp.menu.link.timeline.list</parent>
-            <permissions>admin.content.timeline.canManageTimeline</permissions>
-            <icon>fa-plus</icon>
-        </acpmenuitem>
-        <!-- /timeline -->
-
-    </import>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.woltlab.com" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/acpMenu.xsd">
+	<import>
+		<!-- timeline -->
+		<acpmenuitem name="wcf.acp.menu.link.timeline">
+			<parent>wcf.acp.menu.link.content</parent>
+			<showorder>2</showorder>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.timeline.list">
+			<controller>wcf\acp\page\TimelineListPage</controller>
+			<parent>wcf.acp.menu.link.timeline</parent>
+			<permissions>admin.content.timeline.canManageTimeline</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wcf.acp.menu.link.timeline.add">
+			<controller>wcf\acp\form\TimelineAddForm</controller>
+			<parent>wcf.acp.menu.link.timeline.list</parent>
+			<permissions>admin.content.timeline.canManageTimeline</permissions>
+			<icon>fa-plus</icon>
+		</acpmenuitem>
+		<!-- /timeline -->
+	</import>
 </data>

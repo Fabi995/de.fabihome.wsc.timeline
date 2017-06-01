@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.woltlab.com" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
+	<category name="wcf.acp.menu">
+		<item name="wcf.acp.menu.link.timeline"><![CDATA[Timeline]]></item>
+		<item name="wcf.acp.menu.link.timeline.list"><![CDATA[Timeline]]></item>
+		<item name="wcf.acp.menu.link.timeline.add"><![CDATA[Entry add ]]></item>
+	</category>
 
-    <category name="wcf.acp.menu">
-        <item name="wcf.acp.menu.link.timeline"><![CDATA[Timeline]]></item>
-        <item name="wcf.acp.menu.link.timeline.list"><![CDATA[Timeline]]></item>
-        <item name="wcf.acp.menu.link.timeline.add"><![CDATA[Entry add ]]></item>
-    </category>
+	<category name="wcf.acp.timeline">
+		<item name="wcf.acp.timeline.list"><![CDATA[Timeline]]></item>
 
-    <category name="wcf.acp.timeline">
-        <item name="wcf.acp.timeline.list"><![CDATA[Timeline]]></item>
+		<item name="wcf.acp.timeline.add"><![CDATA[Add Entry]]></item>
+		<item name="wcf.acp.timeline.add"><![CDATA[Edit Entry]]></item>
+		<item name="wcf.acp.timeline.title"><![CDATA[Title]]></item>
+		<item name="wcf.acp.timeline.date"><![CDATA[Date]]></item>
+		<item name="wcf.acp.timeline.search.query"><![CDATA[Search Term]]></item>
+		<item name="wcf.acp.timeline.delete.sure"><![CDATA[Do you really want to delete the Entry <span class="confirmationObject">{$timeline->title}</span>?]]></item>
+	</category>
 
-        <item name="wcf.acp.timeline.add"><![CDATA[Add Entry]]></item>
-        <item name="wcf.acp.timeline.add"><![CDATA[Edit Entry]]></item>
-        <item name="wcf.acp.timeline.title"><![CDATA[Title]]></item>
-        <item name="wcf.acp.timeline.date"><![CDATA[Date]]></item>
-        <item name="wcf.acp.timeline.search.query"><![CDATA[Search Term]]></item>
-        <item name="wcf.acp.timeline.delete.sure"><![CDATA[Do you really want to delete the Entry <span class="confirmationObject">{$timeline->title}</span>?]]></item>
-    </category>
+	<category name="wcf.global">
+		<item name="wcf.global.icon"><![CDATA[Icon]]></item>
 
-    <category name="wcf.global">
-        <item name="wcf.global.icon"><![CDATA[Icon]]></item>
+		<item name="wcf.global.isHighlight"><![CDATA[Highlight]]></item>
 
-        <item name="wcf.global.isHighlight"><![CDATA[Highlight]]></item>
+		<item name="wcf.global.timeline.timestamp.dmy"><![CDATA[Day, Month, Year]]></item>
+		<item name="wcf.global.timeline.timestamp.dm"><![CDATA[Day, Month]]></item>
+		<item name="wcf.global.timeline.timestamp.my"><![CDATA[Month, Year]]></item>
+		<item name="wcf.global.timeline.timestamp.m"><![CDATA[Month]]></item>
+		<item name="wcf.global.timeline.timestamp.y"><![CDATA[Year]]></item>
+	</category>
 
-        <item name="wcf.global.timeline.timestamp.dmy"><![CDATA[Day, Month, Year]]></item>
-        <item name="wcf.global.timeline.timestamp.dm"><![CDATA[Day, Month]]></item>
-        <item name="wcf.global.timeline.timestamp.my"><![CDATA[Month, Year]]></item>
-        <item name="wcf.global.timeline.timestamp.m"><![CDATA[Month]]></item>
-        <item name="wcf.global.timeline.timestamp.y"><![CDATA[Year]]></item>
-    </category>
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.category.general.timeline"><![CDATA[Timeline]]></item>
+		<item name="wcf.acp.option.timeline_default_sort_order"><![CDATA[Sort Order]]></item>
+		<item name="wcf.acp.option.timeline_list_entries_per_page"><![CDATA[Entries per page]]></item>
+		<item name="wcf.acp.option.timeline_default_date_format"><![CDATA[Date format]]></item>
+	</category>
 
-    <category name="wcf.acp.option">
-        <item name="wcf.acp.option.category.general.timeline"><![CDATA[Timeline]]></item>
-        <item name="wcf.acp.option.timeline_default_sort_order"><![CDATA[Sort Order]]></item>
-        <item name="wcf.acp.option.timeline_list_entries_per_page"><![CDATA[Entries per page]]></item>
-        <item name="wcf.acp.option.timeline_default_date_format"><![CDATA[Date format]]></item>
-    </category>
-
-    <category name="wcf.acp.group">
-        <item name="wcf.acp.group.option.admin.content.timeline.canManageTimeline"><![CDATA[Can manage timeline]]></item>
-    </category>
-
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.admin.content.timeline.canManageTimeline"><![CDATA[Can manage timeline]]></item>
+	</category>
 </language>

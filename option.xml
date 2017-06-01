@@ -1,44 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/option.xsd">
-    <import>
-        <categories>
-            <category name="general.timeline">
-                <parent>general</parent>
-                <showorder>7</showorder>
-            </category>
-        </categories>
+<data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.woltlab.com" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/vortex/option.xsd">
+	<import>
+		<categories>
+			<category name="general.timeline">
+				<parent>general</parent>
+				<showorder>7</showorder>
+			</category>
+		</categories>
 
-        <options>
-            <option name="timeline_default_sort_order">
-                <categoryname>general.timeline</categoryname>
-                <optiontype>select</optiontype>
-                <defaultvalue>DESC</defaultvalue>
-                <selectoptions>ASC:wcf.global.sortOrder.ascending
-DESC:wcf.global.sortOrder.descending
-                </selectoptions>
-            </option>
+		<options>
+			<option name="timeline_default_sort_order">
+				<categoryname>general.timeline</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue><![CDATA[DESC]]></defaultvalue>
+				<selectoptions><![CDATA[ASC:wcf.global.sortOrder.ascending
+DESC:wcf.global.sortOrder.descending]]></selectoptions>
+			</option>
 
-            <option name="timeline_list_entries_per_page">
-                <categoryname>general.timeline</categoryname>
-                <optiontype>integer</optiontype>
-                <defaultvalue>30</defaultvalue>
-                <minvalue>5</minvalue>
-                <maxvalue>100</maxvalue>
-            </option>
+			<option name="timeline_list_entries_per_page">
+				<categoryname>general.timeline</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>30</defaultvalue>
+				<minvalue>5</minvalue>
+				<maxvalue>100</maxvalue>
+			</option>
 
-            <option name="timeline_default_date_format">
-                <categoryname>general.timeline</categoryname>
-                <optiontype>select</optiontype>
-                <defaultvalue>j. F Y</defaultvalue>
-                <selectoptions>j. F Y:wcf.global.timeline.timestamp.dmy
+			<option name="timeline_default_date_format">
+				<categoryname>general.timeline</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue><![CDATA[j. F Y]]></defaultvalue>
+				<selectoptions><![CDATA[j. F Y:wcf.global.timeline.timestamp.dmy
 j. F:wcf.global.timeline.timestamp.dm
 F Y:wcf.global.timeline.timestamp.my
 F:wcf.global.timeline.timestamp.m
-Y:wcf.global.timeline.timestamp.y
-                </selectoptions>
-            </option>
+Y:wcf.global.timeline.timestamp.y]]></selectoptions>
+			</option>
 
-        </options>
-    </import>
-
+		</options>
+	</import>
 </data>
