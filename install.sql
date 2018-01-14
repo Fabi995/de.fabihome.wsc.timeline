@@ -3,7 +3,7 @@ CREATE TABLE wcf1_timeline (
 	timelineID         INT(10)      NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	title              VARCHAR(255) NOT NULL,
 	content            MEDIUMTEXT,
-	icon VARCHAR(255),
+	iconName VARCHAR(255),
 	iconColor VARCHAR(255),
 	badgeColor VARCHAR(255),
 	date               INT(10)      NOT NULL,
