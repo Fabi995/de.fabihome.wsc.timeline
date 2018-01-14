@@ -1,5 +1,23 @@
 {include file='header' pageTitle='wcf.acp.timeline.'|concat:$action}
 
+{js application='wcf' file='WCF.ColorPicker' bundle='WCF.Combined'}
+{include file='fontAwesomeJavaScript'}
+
+<script data-relocate="true">
+	require(['Language', 'WoltLabSuite/Core/Acp/Ui/Trophy/Badge'], function (Language, BadgeHandler) {
+		Language.addObject({
+			'wcf.style.colorPicker': '{lang}wcf.style.colorPicker{/lang}',
+			'wcf.style.colorPicker.new': '{lang}wcf.style.colorPicker.new{/lang}',
+			'wcf.style.colorPicker.current': '{lang}wcf.style.colorPicker.current{/lang}',
+			'wcf.style.colorPicker.button.apply': '{lang}wcf.style.colorPicker.button.apply{/lang}',
+			'wcf.acp.style.image.error.invalidExtension': '{lang}wcf.acp.style.image.error.invalidExtension{/lang}',
+			'wcf.acp.trophy.badge.edit': '{lang}wcf.acp.trophy.badge.edit{/lang}',
+		});
+
+		BadgeHandler.init();
+	});
+</script>
+
 <header class="contentHeader">
 	<div class="contentHeaderTitle">
 		<h1 class="contentTitle">{lang}wcf.acp.timeline.{$action}{/lang}</h1>
@@ -37,10 +55,15 @@
 			</dd>
 		</dl>
 
-		<dl{if $errorField == 'icon'} class="formError"{/if}>
-			<dt><label for="icon">{lang}wcf.global.icon{/lang}</label></dt>
+		<dl id="badgeContainer">
+			<dt>{lang}wcf.acp.trophy.type.badge{/lang}</dt>
 			<dd>
-				{include file='fontAwesomeSelectOptionType' iconSelectorKey='icon' iconSelectorValue=$icon iconSelectorAllowEmpty='1'}
+				<span class="icon icon64 fa-{$iconName} jsTrophyIcon trophyIcon" style="color: {$iconColor}; background-color: {$badgeColor}"></span>
+				<button class="small">{lang}wcf.global.button.edit{/lang}</button>
+
+				<input type="hidden" name="iconName" value="{$iconName}">
+				<input type="hidden" name="iconColor" value="{$iconColor}">
+				<input type="hidden" name="badgeColor" value="{$badgeColor}">
 			</dd>
 		</dl>
 
@@ -86,5 +109,46 @@
 		{@SECURITY_TOKEN_INPUT_TAG}
 	</div>
 </form>
+
+<div id="trophyIconEditor" style="display: none;">
+	<div class="box128">
+		<span class="icon icon144 fa-{$iconName} jsTrophyIcon trophyIcon" style="color: {$iconColor}; background-color: {$badgeColor}"></span>
+		<div>
+			<dl>
+				<dt>{lang}wcf.acp.trophy.badge.iconName{/lang}</dt>
+				<dd>
+					<span class="jsTrophyIconName">{$iconName}</span>
+					<a href="#" class="button small"><span class="icon icon16 fa-search"></span></a>
+				</dd>
+			</dl>
+
+			<dl id="jsIconColorContainer">
+				<dt>{lang}wcf.acp.trophy.badge.iconColor{/lang}</dt>
+				<dd>
+					<span class="colorBox">
+						<span id="iconColorValue" class="colorBoxValue jsColorPicker" data-store="iconColorValue"></span>
+						<input type="hidden" id="iconColorValue">
+					</span>
+					<a href="#" class="button small jsButtonIconColorPicker"><span class="icon icon16 fa-paint-brush"></span></a>
+				</dd>
+			</dl>
+
+			<dl id="jsBadgeColorContainer">
+				<dt>{lang}wcf.acp.trophy.badge.badgeColor{/lang}</dt>
+				<dd>
+					<span class="colorBox">
+						<span id="badgeColorValue" class="colorBoxValue jsColorPicker" data-store="badgeColorValue"></span>
+						<input type="hidden" id="badgeColorValue">
+					</span>
+					<a href="#" id="test" class="button small jsButtonBadgeColorPicker"><span class="icon icon16 fa-paint-brush"></span></a>
+				</dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="formSubmit">
+		<button class="buttonPrimary">{lang}wcf.global.button.save{/lang}</button>
+	</div>
+</div>
 
 {include file='footer'}

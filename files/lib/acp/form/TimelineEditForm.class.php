@@ -69,7 +69,9 @@ class TimelineEditForm extends TimelineAddForm {
 		$this->objectAction = new TimelineAction([$this->timelineID], 'update', [
 			'data' => array_merge($this->additionalFields, [
 				'title' => $this->subject,
-				'icon' => $this->icon,
+				'iconName' => $this->iconName,
+				'iconColor' => $this->iconColor,
+				'badgeColor' => $this->badgeColor,
 				'date' => $this->timeObj->getTimestamp(),
 				'content' => $this->text,
 				'isHighlight' => $this->isHighlight
@@ -93,7 +95,9 @@ class TimelineEditForm extends TimelineAddForm {
 		
 		if (empty($_POST)) {
 			$this->subject = $this->timelineObj->title;
-			$this->icon = $this->timelineObj->icon;
+			$this->iconName = $this->timelineObj->iconName;
+			$this->iconColor = $this->timelineObj->iconColor;
+			$this->badgeColor = $this->timelineObj->badgeColor;
 			$dateTime = DateUtil::getDateTimeByTimestamp($this->timelineObj->date);
 			$dateTime->setTimezone(WCF::getUser()->getTimeZone());
 			$this->date = $dateTime->format('c');

@@ -8,8 +8,8 @@
 				{$timeline->date|date:TIMELINE_DEFAULT_DATE_FORMAT}
 			</div>
 
-			<div class="timeline-icon">
-				<span class="icon icon48 fa-{if $timeline->icon}{$timeline->icon}{else}star{/if}"></span>
+			<div class="timeline-icon" style=" background-color: {$timeline->badgeColor}">
+				<span class="icon icon48 fa-{if $timeline->iconName}{$timeline->iconName}{else}star{/if}" style="color: {$timeline->iconColor}"></span>
 			</div>
 
 			<div class="timeline-content-container">
@@ -28,7 +28,6 @@
 			</div>
 		</div>
 	{/foreach}
-
 </div>
 
 <script data-relocate="true">

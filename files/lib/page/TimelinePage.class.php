@@ -5,7 +5,7 @@ namespace wcf\page;
 use wcf\data\timeline\TimelineList;
 
 /**
- * Shows the timeline page.
+ * Shows the timeline form.
  *
  * @author           Fabian Graf
  * @copyright        2017 Fabian Graf

@@ -38,11 +38,25 @@ class TimelineAddForm extends MessageForm {
 	public $action = 'add';
 	
 	/**
-	 * icon value
+	 * iconName value
 	 *
 	 * @var        string
 	 */
-	public $icon = '';
+	public $iconName = 'star';
+
+	/**
+	 * iconColor value
+	 *
+	 * @var        string
+	 */
+	public $iconColor = 'rgba(255, 235, 59, 1)';
+
+	/**
+	 * badgeColor value
+	 *
+	 * @var        string
+	 */
+	public $badgeColor = 'rgba(255, 255, 255, 0)';
 	
 	/**
 	 * date value
@@ -76,7 +90,9 @@ class TimelineAddForm extends MessageForm {
 	public function readFormParameters() {
 		parent::readFormParameters();
 		
-		if (isset($_POST['icon'])) $this->icon = StringUtil::trim($_POST['icon']);
+		if (isset($_POST['iconName'])) $this->iconName = StringUtil::trim($_POST['iconName']);
+		if (isset($_POST['iconColor'])) $this->iconColor = StringUtil::trim($_POST['iconColor']);
+		if (isset($_POST['badgeColor'])) $this->badgeColor = StringUtil::trim($_POST['badgeColor']);
 		if (isset($_POST['date'])) {
 			$this->date = $_POST['date'];
 			$this->timeObj = \DateTime::createFromFormat('Y-m-d', $this->date);
@@ -109,7 +125,9 @@ class TimelineAddForm extends MessageForm {
 		$this->objectAction = new TimelineAction([], 'create', [
 			'data' => array_merge($this->additionalFields, [
 				'title' => $this->subject,
-				'icon' => $this->icon,
+				'iconName' => $this->iconName,
+				'iconColor' => $this->iconColor,
+				'badgeColor' => $this->badgeColor,
 				'date' => $this->timeObj->getTimestamp(),
 				'content' => $this->text,
 				'isHighlight' => $this->isHighlight
@@ -121,7 +139,7 @@ class TimelineAddForm extends MessageForm {
 		$this->saved();
 		
 		// reset values
-		$this->subject = $this->icon = $this->date = $this->text = '';
+		$this->subject = $this->iconName = $this->iconColor = $this->badgeColor = $this->date = $this->text = '';
 		$this->isHighlight = 0;
 		
 		// show success message
@@ -135,7 +153,9 @@ class TimelineAddForm extends MessageForm {
 		parent::assignVariables();
 		
 		WCF::getTPL()->assign([
-			'icon' => $this->icon,
+			'iconName' => $this->iconName,
+			'iconColor' => $this->iconColor,
+			'badgeColor' => $this->badgeColor,
 			'date' => $this->date,
 			'isHighlight' => $this->isHighlight,
 		]);

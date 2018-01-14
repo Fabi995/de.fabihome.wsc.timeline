@@ -17,7 +17,9 @@ use wcf\system\WCF;
  * @property-read integer $timelineID
  * @property-read string  $title
  * @property-read string  $content
- * @property-read string  $icon
+ * @property-read string  $iconName
+ * @property-read string  $iconColor
+ * @property-read string  $badgeColor
  * @property-read integer $date
  * @property-read integer $isHighlight
  * @property-read integer $hasEmbeddedObjects
