@@ -1,5 +1,5 @@
-# Timeline V 1.0.2 pl 3
-Timeline for Woltlab Suite 3.0
+# Timeline V 2.1.0
+Timeline for Woltlab Suite 5.2
 
 Homepage: https://fabihome.de
 

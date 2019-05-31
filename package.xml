@@ -4,9 +4,9 @@
 		<packagename><![CDATA[Timeline]]></packagename>
 		<packagedescription><![CDATA[Timeline for successes or something else.]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Timeline für Erfolge oder anderes.]]></packagedescription>
-		<version>2.0.0</version>
+		<version>2.1.0</version>
 		<date>2018-01-13</date>
-		<license><![CDATA[All rights reserved <https://fabihome.de/license.html>]]></license>
+		<license><![CDATA[Fabihome Free <https://fabihome.de/license.html>]]></license>
 	</packageinformation>
 
 	<authorinformation>
@@ -15,12 +15,16 @@
 	</authorinformation>
 
 	<requiredpackages>
-		<requiredpackage minversion="3.1.0 Alpha 5">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="3.1.8">com.woltlab.wcf</requiredpackage>
 	</requiredpackages>
 
 	<excludedpackages>
-		<excludedpackage version="3.2.0 Alpha 1">com.woltlab.wcf</excludedpackage>
+		<excludedpackage version="5.3.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 	</excludedpackages>
+
+	<compatibility>
+		<api version="2018" />
+	</compatibility>
 
 	<instructions type="install">
 		<!-- files -->
@@ -62,6 +66,10 @@
 
 		<!-- language -->
 		<instruction type="language"/>
+
+	</instructions>
+
+	<instructions type="update" fromversion="2.0.1">
 
 	</instructions>
 
